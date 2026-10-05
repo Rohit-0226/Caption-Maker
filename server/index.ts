@@ -23,9 +23,11 @@ import express from 'express';
 import cors from 'cors';
 import fs from 'node:fs';
 import fsp from 'node:fs/promises';
+import net from 'node:net';
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+
 
 import { FileProjectStore } from './services/projectStore';
 import {
@@ -99,18 +101,6 @@ const DATA_DIR = process.env.CAPTION_MAKER_DATA_DIR && process.env.CAPTION_MAKER
 const PROJECTS_DIR = path.join(DATA_DIR, 'projects');
 const OUTPUT_DIR = path.join(DATA_DIR, 'output');
 const FONTS_DIR = path.join(DATA_DIR, 'fonts');
-const PORT = Number(process.env.PORT ?? 5180);
-const MAX_REFERENCE_PDF_BYTES = 20 * 1024 * 1024;
-// reported by /api/health, so a client can tell this server from one that restarted
-const STARTED_AT = new Date().toISOString();
-
-// Ensure persistent storage directories exist
-for (const dir of [PROJECTS_DIR, OUTPUT_DIR, FONTS_DIR]) {
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir, { recursive: true });
-  }
-}
-
 // Minimal .env reader — avoids a dependency for one file we control.
 const loadEnv = () => {
   const envFiles = [path.join(ROOT, '.env'), path.join(DATA_DIR, '.env')];
@@ -129,6 +119,67 @@ const loadEnv = () => {
 };
 
 loadEnv();
+
+const checkPortFree = (port: number, host = '0.0.0.0'): Promise<boolean> => {
+  return new Promise((resolve) => {
+    const tester = net.createServer();
+    tester.once('error', () => resolve(false));
+    tester.once('listening', () => {
+      tester.close(() => resolve(true));
+    });
+    tester.listen(port, host);
+  });
+};
+
+const resolveOpenPort = async (startPort: number, maxAttempts = 50): Promise<number> => {
+  for (let p = startPort; p < startPort + maxAttempts; p++) {
+    if (await checkPortFree(p)) return p;
+  }
+  return startPort;
+};
+
+const REQUESTED_PORT = Number(process.env.PORT ?? process.env.CM_API_PORT ?? 5180);
+const PORT = await resolveOpenPort(REQUESTED_PORT);
+process.env.PORT = String(PORT);
+process.env.CM_API_PORT = String(PORT);
+
+const RUNTIME_PORTS_FILE = path.join(ROOT, 'launcher', 'runtime-ports.json');
+
+const updateRuntimePorts = (patch: Record<string, unknown>) => {
+  try {
+    let current: Record<string, unknown> = {};
+    if (fs.existsSync(RUNTIME_PORTS_FILE)) {
+      try { current = JSON.parse(fs.readFileSync(RUNTIME_PORTS_FILE, 'utf8')); } catch {}
+    }
+    const next = { ...current, ...patch, updatedAt: new Date().toISOString() };
+    const dir = path.dirname(RUNTIME_PORTS_FILE);
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(RUNTIME_PORTS_FILE, JSON.stringify(next, null, 2), 'utf8');
+  } catch {}
+};
+
+updateRuntimePorts({ apiPort: PORT, apiPid: process.pid });
+
+const getActiveWebPort = (): number => {
+  try {
+    if (fs.existsSync(RUNTIME_PORTS_FILE)) {
+      const data = JSON.parse(fs.readFileSync(RUNTIME_PORTS_FILE, 'utf8'));
+      if (data.webPort && Number(data.webPort) > 0) return Number(data.webPort);
+    }
+  } catch {}
+  return Number(process.env.CM_WEB_PORT ?? 5173);
+};
+
+const MAX_REFERENCE_PDF_BYTES = 20 * 1024 * 1024;
+// reported by /api/health, so a client can tell this server from one that restarted
+const STARTED_AT = new Date().toISOString();
+
+// Ensure persistent storage directories exist
+for (const dir of [PROJECTS_DIR, OUTPUT_DIR, FONTS_DIR]) {
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+  }
+}
 
 const store = new FileProjectStore(PROJECTS_DIR);
 const fontStore = new FontStore(FONTS_DIR);
@@ -155,8 +206,50 @@ app.get('/api/health', (req, res) => {
     pid: process.pid,
     startedAt: STARTED_AT,
     port: PORT,
+    webPort: getActiveWebPort(),
     owner: process.env.CM_STACK_OWNER?.trim() || null,
+    acceptedExtensions: ACCEPTED_EXTENSIONS,
     ...(viaTunnel ? {} : { root: ROOT, dataDir: DATA_DIR }),
+  });
+});
+
+/**
+ * Web Share & Network Hub API endpoint
+ * Delivers dynamic localhost URLs, LAN addresses, and active Cloudflare tunnel links.
+ */
+app.get('/api/share', (req, res) => {
+  const webPort = getActiveWebPort();
+  const lan = lanAddresses();
+  let tunnelUrl: string | null = null;
+
+  try {
+    if (fs.existsSync(RUNTIME_PORTS_FILE)) {
+      const data = JSON.parse(fs.readFileSync(RUNTIME_PORTS_FILE, 'utf8'));
+      if (data.tunnelUrl) tunnelUrl = String(data.tunnelUrl);
+    }
+  } catch {}
+
+  if (!tunnelUrl) {
+    try {
+      const stateFile = path.join(ROOT, 'launcher', 'state.json');
+      if (fs.existsSync(stateFile)) {
+        const state = JSON.parse(fs.readFileSync(stateFile, 'utf8'));
+        if (state.tunnelUrl) tunnelUrl = String(state.tunnelUrl);
+      }
+    } catch {}
+  }
+
+  const isAutoPort = webPort !== 5173 || PORT !== 5180;
+
+  res.json({
+    ok: true,
+    apiPort: PORT,
+    webPort,
+    localhostUrl: `http://localhost:${webPort}`,
+    lanUrls: lan.map((ip) => `http://${ip}:${webPort}`),
+    tunnelUrl,
+    isAutoPort,
+    serverStartedAt: STARTED_AT,
   });
 });
 
@@ -186,11 +279,8 @@ const handle =
 // Meta
 // ---------------------------------------------------------------------------
 
-app.get('/api/health', (_req, res) => {
-  res.json({ ok: true, acceptedExtensions: ACCEPTED_EXTENSIONS });
-});
-
 app.get('/api/providers', (_req, res) => {
+
   res.json(summarise());
 });
 

@@ -416,20 +416,38 @@ namespace CaptionMakerLauncher
             }
             return result;
         }
+
+        public static bool IsPortInUse(int port)
+        {
+            return GetPidsForPort(port).Count > 0;
+        }
+
+        public static int FindNextAvailablePort(int startPort, int maxAttempts)
+        {
+            for (int p = startPort; p < startPort + maxAttempts; p++)
+            {
+                if (!IsPortInUse(p)) return p;
+            }
+            return startPort;
+        }
     }
     #endregion
 
     public class MainForm : Form
     {
         public const string WINDOW_TITLE = "Caption Maker - Web Hub & Cloudflare Tunnel";
-        private const int WEB_PORT = 5173;
-        private const int SERVER_PORT = 5180;
+        private const int DEFAULT_WEB_PORT = 5173;
+        private const int DEFAULT_SERVER_PORT = 5180;
+        private int m_webPort = DEFAULT_WEB_PORT;
+        private int m_serverPort = DEFAULT_SERVER_PORT;
+
 
         private string m_projectRoot;
         private string m_launcherDir;
         private string m_logPath;
         private string m_statePath;
         private string m_depsHashPath;
+        private string m_runtimePortsPath;
 
         private IntPtr m_hJob = IntPtr.Zero;
         private Process m_devProcess = null;
@@ -505,6 +523,7 @@ namespace CaptionMakerLauncher
             m_logPath = Path.Combine(m_launcherDir, "logs", "launcher.log");
             m_statePath = Path.Combine(m_launcherDir, "state.json");
             m_depsHashPath = Path.Combine(m_launcherDir, ".deps.hash");
+            m_runtimePortsPath = Path.Combine(m_launcherDir, "runtime-ports.json");
             m_ownerTag = "launcher:" + Process.GetCurrentProcess().Id;
 
             if (!Directory.Exists(Path.GetDirectoryName(m_logPath)))
@@ -651,7 +670,7 @@ namespace CaptionMakerLauncher
             linksTable.Controls.Add(lblNameLocal, 0, 0);
 
             m_lblLocalLink = new Label();
-            m_lblLocalLink.Text = string.Format("http://localhost:{0}", WEB_PORT);
+            m_lblLocalLink.Text = string.Format("http://localhost:{0}", m_webPort);
             m_lblLocalLink.Font = new Font("Consolas", 9.5F, FontStyle.Regular);
             m_lblLocalLink.ForeColor = Color.FromArgb(96, 165, 250);
             m_lblLocalLink.Dock = DockStyle.Fill;
@@ -674,12 +693,13 @@ namespace CaptionMakerLauncher
 
             string lanIp = GetActiveLanIp();
             m_lblLanLink = new Label();
-            m_lblLanLink.Text = string.Format("http://{0}:{1}", lanIp, WEB_PORT);
+            m_lblLanLink.Text = string.Format("http://{0}:{1}", lanIp, m_webPort);
             m_lblLanLink.Font = new Font("Consolas", 9.5F, FontStyle.Regular);
             m_lblLanLink.ForeColor = Color.FromArgb(96, 165, 250);
             m_lblLanLink.Dock = DockStyle.Fill;
             m_lblLanLink.TextAlign = ContentAlignment.MiddleLeft;
             linksTable.Controls.Add(m_lblLanLink, 1, 1);
+
 
             m_btnOpenLan = CreateSmallButton("Open", delegate { OpenUrl(m_lblLanLink.Text); });
             linksTable.Controls.Add(m_btnOpenLan, 2, 1);
@@ -749,9 +769,10 @@ namespace CaptionMakerLauncher
             leftButtons.Margin = new Padding(0);
 
             m_btnOpenBrowser = CreateMainButton("🌐 Open in Browser", delegate {
-                OpenUrl(string.Format("http://localhost:{0}", WEB_PORT));
+                OpenUrl(string.Format("http://localhost:{0}", m_webPort));
             });
             leftButtons.Controls.Add(m_btnOpenBrowser);
+
 
             m_btnStartRestart = CreateMainButton("🔄 Restart", new EventHandler(OnStartRestartClick));
             leftButtons.Controls.Add(m_btnStartRestart);
@@ -970,7 +991,7 @@ namespace CaptionMakerLauncher
 
                     // 2. Already running? The desktop app may have started the stack;
                     //    then share it instead of clearing its ports and starting another.
-                    SetStatus("Looking for a running stack...", Color.FromArgb(59, 130, 246), "Checking ports 5173 and 5180...");
+                    SetStatus("Looking for a running stack...", Color.FromArgb(59, 130, 246), "Checking active ports...");
                     string running = DetectRunningStack(25);
                     if (running != null)
                     {
@@ -979,6 +1000,29 @@ namespace CaptionMakerLauncher
                         return;
                     }
                     m_attached = false;
+
+                    // If default ports are occupied by another program, auto-assign next available ports
+                    if (PortManager.IsPortInUse(DEFAULT_WEB_PORT))
+                    {
+                        m_webPort = PortManager.FindNextAvailablePort(5174, 50);
+                        Log(string.Format("[Ports] Port {0} is occupied by another application. Dynamic web port assigned: {1}", DEFAULT_WEB_PORT, m_webPort));
+                    }
+                    else
+                    {
+                        m_webPort = DEFAULT_WEB_PORT;
+                    }
+
+                    if (PortManager.IsPortInUse(DEFAULT_SERVER_PORT))
+                    {
+                        m_serverPort = PortManager.FindNextAvailablePort(5181, 50);
+                        Log(string.Format("[Ports] Port {0} is occupied by another application. Dynamic API port assigned: {1}", DEFAULT_SERVER_PORT, m_serverPort));
+                    }
+                    else
+                    {
+                        m_serverPort = DEFAULT_SERVER_PORT;
+                    }
+
+                    UpdateLinksUI();
 
                     // 3. Dependencies check
                     SetStatus("Checking dependencies...", Color.FromArgb(245, 158, 11), "Verifying node_modules content hash...");
@@ -989,7 +1033,7 @@ namespace CaptionMakerLauncher
                     }
 
                     // 4. Clear Stale Ports (only reached when nothing healthy answers on them)
-                    SetStatus("Clearing stale ports...", Color.FromArgb(59, 130, 246), "Checking port 5173 and 5180...");
+                    SetStatus("Clearing stale ports...", Color.FromArgb(59, 130, 246), string.Format("Checking ports {0} and {1}...", m_webPort, m_serverPort));
                     ClearStalePorts();
 
                     // 5. Start Dev Process
@@ -1014,7 +1058,7 @@ namespace CaptionMakerLauncher
                         else
                         {
                             SetStatus("Running", Color.FromArgb(16, 185, 129), "Web client and API server active");
-                            LogSuccess(string.Format("[Launcher] All services ready. Web: http://localhost:{0}, API: http://localhost:{1}", WEB_PORT, SERVER_PORT));
+                            LogSuccess(string.Format("[Launcher] All services ready. Web: http://localhost:{0}, API: http://localhost:{1}", m_webPort, m_serverPort));
                         }
                         OnStackReady();
                     }
@@ -1034,10 +1078,11 @@ namespace CaptionMakerLauncher
 
         private void OnStackReady()
         {
+            TryReadRuntimePorts();
             if (!m_browserOpened)
             {
                 m_browserOpened = true;
-                OpenUrl(string.Format("http://localhost:{0}", WEB_PORT));
+                OpenUrl(string.Format("http://localhost:{0}", m_webPort));
             }
 
             // Start Public Tunnel if enabled
@@ -1055,9 +1100,10 @@ namespace CaptionMakerLauncher
         /// </summary>
         private string ProbeCaptionMakerStack()
         {
-            string web = FetchHealth(string.Format("http://127.0.0.1:{0}/api/health", WEB_PORT));
+            TryReadRuntimePorts();
+            string web = FetchHealth(string.Format("http://127.0.0.1:{0}/api/health", m_webPort));
             if (!IsCaptionMakerHealth(web)) return null;
-            string api = FetchHealth(string.Format("http://127.0.0.1:{0}/api/health", SERVER_PORT));
+            string api = FetchHealth(string.Format("http://127.0.0.1:{0}/api/health", m_serverPort));
             if (!IsCaptionMakerHealth(api)) return null;
             return web;
         }
@@ -1118,7 +1164,7 @@ namespace CaptionMakerLauncher
 
         private bool PortsBusy()
         {
-            return PortManager.GetPidsForPort(WEB_PORT).Count > 0 || PortManager.GetPidsForPort(SERVER_PORT).Count > 0;
+            return PortManager.GetPidsForPort(m_webPort).Count > 0 || PortManager.GetPidsForPort(m_serverPort).Count > 0;
         }
 
         /// <summary>
@@ -1130,11 +1176,26 @@ namespace CaptionMakerLauncher
         /// </summary>
         private string DetectRunningStack(int graceSeconds)
         {
+            TryReadRuntimePorts();
             string health = ProbeCaptionMakerStack();
             if (health != null) return health;
+
+            if (m_webPort != DEFAULT_WEB_PORT || m_serverPort != DEFAULT_SERVER_PORT)
+            {
+                string defWeb = FetchHealth(string.Format("http://127.0.0.1:{0}/api/health", DEFAULT_WEB_PORT));
+                string defApi = FetchHealth(string.Format("http://127.0.0.1:{0}/api/health", DEFAULT_SERVER_PORT));
+                if (IsCaptionMakerHealth(defWeb) && IsCaptionMakerHealth(defApi))
+                {
+                    m_webPort = DEFAULT_WEB_PORT;
+                    m_serverPort = DEFAULT_SERVER_PORT;
+                    UpdateLinksUI();
+                    return defWeb;
+                }
+            }
+
             if (!PortsBusy()) return null;
 
-            Log(string.Format("[Ports] {0}/{1} are taken but not answering yet; waiting up to {2}s in case a stack is starting...", WEB_PORT, SERVER_PORT, graceSeconds));
+            Log(string.Format("[Ports] {0}/{1} are taken but not answering yet; waiting up to {2}s in case a stack is starting...", m_webPort, m_serverPort, graceSeconds));
             DateTime deadline = DateTime.UtcNow.AddSeconds(graceSeconds);
             while (DateTime.UtcNow < deadline && !m_isStopping)
             {
@@ -1284,7 +1345,7 @@ namespace CaptionMakerLauncher
 
         private void ClearStalePorts()
         {
-            int[] ports = new int[] { WEB_PORT, SERVER_PORT };
+            int[] ports = new int[] { m_webPort, m_serverPort };
             for (int i = 0; i < ports.Length; i++)
             {
                 int port = ports[i];
@@ -1327,6 +1388,9 @@ namespace CaptionMakerLauncher
             psi.EnvironmentVariables["CI"] = "1";
             psi.EnvironmentVariables["TERM"] = "dumb";
             psi.EnvironmentVariables["CM_STACK_OWNER"] = m_ownerTag;
+            psi.EnvironmentVariables["PORT"] = m_webPort.ToString();
+            psi.EnvironmentVariables["CM_WEB_PORT"] = m_webPort.ToString();
+            psi.EnvironmentVariables["CM_API_PORT"] = m_serverPort.ToString();
             if (psi.EnvironmentVariables.ContainsKey("FORCE_COLOR"))
             {
                 psi.EnvironmentVariables.Remove("FORCE_COLOR");
@@ -1390,8 +1454,9 @@ namespace CaptionMakerLauncher
             DateTime deadline = DateTime.UtcNow.AddSeconds(timeoutSeconds);
             while (DateTime.UtcNow < deadline && !m_isStopping)
             {
-                bool apiOk = CheckEndpoint(string.Format("http://127.0.0.1:{0}/api/health", SERVER_PORT));
-                bool webOk = CheckEndpoint(string.Format("http://127.0.0.1:{0}/", WEB_PORT));
+                TryReadRuntimePorts();
+                bool apiOk = CheckEndpoint(string.Format("http://127.0.0.1:{0}/api/health", m_serverPort));
+                bool webOk = CheckEndpoint(string.Format("http://127.0.0.1:{0}/", m_webPort));
 
                 if (apiOk && webOk) return true;
                 Thread.Sleep(400);
@@ -1439,9 +1504,9 @@ namespace CaptionMakerLauncher
             }
 
             UpdatePublicLinkUI("Starting tunnel...", false);
-            Log("[Cloudflare] Starting quick tunnel to http://127.0.0.1:" + WEB_PORT + "...");
+            Log("[Cloudflare] Starting quick tunnel to http://127.0.0.1:" + m_webPort + "...");
 
-            ProcessStartInfo psi = new ProcessStartInfo(cfPath, string.Format("tunnel --no-autoupdate --url http://127.0.0.1:{0}", WEB_PORT));
+            ProcessStartInfo psi = new ProcessStartInfo(cfPath, string.Format("tunnel --no-autoupdate --url http://127.0.0.1:{0}", m_webPort));
             psi.CreateNoWindow = true;
             psi.UseShellExecute = false;
             psi.RedirectStandardOutput = true;
@@ -1493,6 +1558,7 @@ namespace CaptionMakerLauncher
                 m_tunnelIsLive = true;
                 m_tunnelRestartAttempts = 0;
                 UpdatePublicLinkUI(m_tunnelUrl, true);
+                UpdateRuntimePortsTunnel(m_tunnelUrl);
                 LogSuccess(string.Format("[Cloudflare] Public tunnel is LIVE at {0}", m_tunnelUrl));
                 LogWarning("[Security Notice] Anyone with this link can access Caption Maker projects and tools until this launcher closes.");
             }
@@ -1571,6 +1637,89 @@ namespace CaptionMakerLauncher
                 m_btnOpenPublic.Enabled = false;
                 m_btnCopyPublic.Enabled = false;
             }
+        }
+
+        private void UpdateLinksUI()
+        {
+            if (this.IsDisposed || !this.IsHandleCreated) return;
+            if (this.InvokeRequired)
+            {
+                try
+                {
+                    this.BeginInvoke(new Action(delegate { UpdateLinksUI(); }));
+                }
+                catch {}
+                return;
+            }
+
+            if (m_lblLocalLink != null)
+                m_lblLocalLink.Text = string.Format("http://localhost:{0}", m_webPort);
+            if (m_lblLanLink != null)
+                m_lblLanLink.Text = string.Format("http://{0}:{1}", GetActiveLanIp(), m_webPort);
+        }
+
+        private void TryReadRuntimePorts()
+        {
+            try
+            {
+                if (File.Exists(m_runtimePortsPath))
+                {
+                    string json = File.ReadAllText(m_runtimePortsPath);
+                    int web = ParseJsonInt(json, "webPort");
+                    int api = ParseJsonInt(json, "apiPort");
+                    bool changed = false;
+                    if (web > 0 && web != m_webPort)
+                    {
+                        m_webPort = web;
+                        changed = true;
+                    }
+                    if (api > 0 && api != m_serverPort)
+                    {
+                        m_serverPort = api;
+                        changed = true;
+                    }
+                    if (changed)
+                    {
+                        UpdateLinksUI();
+                    }
+                }
+            }
+            catch {}
+        }
+
+        private static int ParseJsonInt(string json, string key)
+        {
+            if (string.IsNullOrEmpty(json)) return 0;
+            Match m = Regex.Match(json, "\"" + key + "\"\\s*:\\s*([0-9]+)");
+            if (m.Success)
+            {
+                int val;
+                if (int.TryParse(m.Groups[1].Value, out val)) return val;
+            }
+            return 0;
+        }
+
+        private void UpdateRuntimePortsTunnel(string url)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(m_runtimePortsPath))
+                {
+                    string json = "";
+                    if (File.Exists(m_runtimePortsPath))
+                    {
+                        json = File.ReadAllText(m_runtimePortsPath);
+                    }
+                    int api = ParseJsonInt(json, "apiPort");
+                    int web = ParseJsonInt(json, "webPort");
+                    if (api <= 0) api = m_serverPort;
+                    if (web <= 0) web = m_webPort;
+                    string updated = string.Format("{{\n  \"apiPort\": {0},\n  \"webPort\": {1},\n  \"tunnelUrl\": \"{2}\",\n  \"updatedAt\": \"{3}\"\n}}",
+                        api, web, (url ?? "").Replace("\\", "\\\\").Replace("\"", "\\\""), DateTime.UtcNow.ToString("o"));
+                    File.WriteAllText(m_runtimePortsPath, updated);
+                }
+            }
+            catch {}
         }
 
         private bool VerifyCloudflaredSignature(string path)
@@ -1949,8 +2098,8 @@ namespace CaptionMakerLauncher
             ThreadPool.QueueUserWorkItem(delegate {
                 try
                 {
-                    bool apiOk = CheckEndpoint(string.Format("http://127.0.0.1:{0}/api/health", SERVER_PORT));
-                    bool webOk = CheckEndpoint(string.Format("http://127.0.0.1:{0}/", WEB_PORT));
+                    bool apiOk = CheckEndpoint(string.Format("http://127.0.0.1:{0}/api/health", m_serverPort));
+                    bool webOk = CheckEndpoint(string.Format("http://127.0.0.1:{0}/", m_webPort));
 
                     if (this.IsDisposed || !this.IsHandleCreated) return;
 

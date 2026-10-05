@@ -14,6 +14,7 @@ import {
   IconLogo,
   IconRedo,
   IconSettings,
+  IconShare,
   IconSliders,
   IconText,
   IconTrash,
@@ -22,6 +23,7 @@ import {
   IconWand,
 } from '../components/icons';
 import { SettingsDialog } from '../features/settings/SettingsDialog';
+import { WebShareModal } from '../features/share/WebShareModal';
 
 export type StudioTab = 'captions' | 'templates' | 'style' | 'ai' | 'fonts' | 'library';
 
@@ -291,6 +293,7 @@ export const TopBar: React.FC<{
   const canRedo = useEditor((s) => s.future.length > 0);
 
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const [shareOpen, setShareOpen] = useState(false);
   const [hasGroqKey, setHasGroqKey] = useState<boolean | null>(null);
 
   useEffect(() => {
@@ -424,6 +427,16 @@ export const TopBar: React.FC<{
 
         <button
           type="button"
+          className="cm-button cm-button--secondary cm-button--sm cm-topbar__settings-btn"
+          onClick={() => setShareOpen(true)}
+          title="Web Hub & Network Share"
+        >
+          <IconShare size={14} />
+          <span className="cm-hide-mobile">Share</span>
+        </button>
+
+        <button
+          type="button"
           className={`cm-button cm-button--secondary cm-button--sm cm-topbar__settings-btn ${hasGroqKey === false ? 'cm-btn-pulse' : ''}`}
           onClick={() => setSettingsOpen(true)}
           title="Settings & API Keys"
@@ -465,6 +478,11 @@ export const TopBar: React.FC<{
         onSaved={() => {
           api.getSettings().then((s) => setHasGroqKey(s.hasGroqKey)).catch(() => {});
         }}
+      />
+
+      <WebShareModal
+        open={shareOpen}
+        onClose={() => setShareOpen(false)}
       />
     </header>
   );

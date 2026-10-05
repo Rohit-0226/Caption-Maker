@@ -467,7 +467,21 @@ export const api = {
 
   testKey: (provider: 'groq' | 'openrouter' | 'gemini', apiKey: string) =>
     request<TestKeyResult>('/settings/test', json({ provider, apiKey })),
+
+  getShareInfo: () => request<WebShareInfo>('/share'),
 };
+
+export interface WebShareInfo {
+  ok: boolean;
+  apiPort: number;
+  webPort: number;
+  localhostUrl: string;
+  lanUrls: string[];
+  tunnelUrl: string | null;
+  isAutoPort: boolean;
+  serverStartedAt?: string;
+}
+
 
 /** Follows job progress over SSE, falling back to polling if the stream dies. */
 export const subscribeToJobs = (

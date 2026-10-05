@@ -26,10 +26,27 @@ const readPort = (value, fallback) => {
 };
 
 /** The same variables vite.config.ts and the server read, so all three agree. */
-const resolvePorts = (env = process.env) => ({
-  webPort: readPort(env.CM_WEB_PORT, DEFAULT_WEB_PORT),
-  apiPort: readPort(env.CM_API_PORT || env.PORT, DEFAULT_API_PORT),
-});
+const resolvePorts = (env = process.env) => {
+  let webPort = readPort(env.CM_WEB_PORT, null);
+  let apiPort = readPort(env.CM_API_PORT || env.PORT, null);
+
+  if (env === process.env && (!webPort || !apiPort)) {
+    try {
+      const runtimeFile = path.resolve('launcher', 'runtime-ports.json');
+      if (fs.existsSync(runtimeFile)) {
+        const data = JSON.parse(fs.readFileSync(runtimeFile, 'utf8'));
+        if (!webPort && data.webPort) webPort = readPort(data.webPort, null);
+        if (!apiPort && data.apiPort) apiPort = readPort(data.apiPort, null);
+      }
+    } catch {}
+  }
+
+  return {
+    webPort: webPort ?? DEFAULT_WEB_PORT,
+    apiPort: apiPort ?? DEFAULT_API_PORT,
+  };
+};
+
 
 /** Real path where possible: `E:\Desktop\Caption Maker` is a link to the real folder. */
 const canonical = (dir) => {
