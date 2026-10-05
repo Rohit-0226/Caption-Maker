@@ -1,0 +1,110 @@
+{
+  "name": "caption-maker",
+  "version": "1.0.0",
+  "description": "AI Video Caption Maker & Styling Studio (Web & Share)",
+  "author": "Caption Maker Team",
+  "private": true,
+  "type": "module",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "concurrently -n server,web -c cyan,magenta \"npm:dev:server\" \"npm:dev:web\"",
+    "dev:server": "tsx watch server/index.ts",
+    "dev:web": "vite",
+    "build:server": "esbuild server/index.ts --bundle --platform=node --format=esm --target=node22 --packages=external --outfile=dist-server/index.js",
+    "build:web": "tsc --noEmit && vite build",
+    "build": "npm run build:web && npm run build:server",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "start": "node --experimental-strip-types server/index.ts",
+    "electron:start": "electron electron/main.cjs --dev",
+    "electron:dev": "concurrently -n server,web,desktop -c cyan,magenta,green \"npm:dev:server\" \"npm:dev:web\" \"npm:electron:start\"",
+    "electron:build": "npm run build && electron-builder --win",
+    "audit:sync": "tsx eval/syncAudit.ts"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "^4.2.0",
+    "@remotion/bundler": "^4.0.520",
+    "@remotion/player": "^4.0.520",
+    "@remotion/renderer": "^4.0.520",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "nanoid": "^6.0.1",
+    "pdfjs-dist": "^5.4.296",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "remotion": "^4.0.520",
+    "zustand": "^5.0.15"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.4.1",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.5",
+    "concurrently": "^10.0.5",
+    "electron": "^44.3.0",
+    "electron-builder": "^26.15.3",
+    "tsx": "^4.23.13",
+    "typescript": "^7.0.2",
+    "vite": "^8.2.2",
+    "vitest": "^4.1.11"
+  },
+  "build": {
+    "appId": "com.captionmaker.app",
+    "productName": "Caption Maker",
+    "npmRebuild": false,
+    "asar": true,
+    "asarUnpack": [
+      "dist/**/*",
+      "dist-server/**/*"
+    ],
+    "directories": {
+      "output": "dist-electron"
+    },
+    "files": [
+      "dist/**/*",
+      "dist-server/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "resources/bin",
+        "to": "bin",
+        "filter": [
+          "*.exe"
+        ]
+      },
+      {
+        "from": "resources/icon.ico",
+        "to": "icon.ico"
+      }
+    ],
+    "win": {
+      "icon": "resources/icon.ico",
+      "executableName": "Caption Maker",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Caption Maker"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "id": "vlog_02",
+  "title": "Mountain Travel Vlog",
+  "category": "vlog",
+  "raw_asr": "aaj hum pahunche hain pahadon me aur mausam bahut accha hai",
+  "ground_truth": [
+    {
+      "text": "aaj",
+      "script": "hi"
+    },
+    {
+      "text": "hum",
+      "script": "hi"
+    },
+    {
+      "text": "pahunche",
+      "script": "hi"
+    },
+    {
+      "text": "hain",
+      "script": "hi"
+    },
+    {
+      "text": "pahadon",
+      "script": "hi"
+    },
+    {
+      "text": "me",
+      "script": "hi"
+    },
+    {
+      "text": "aur",
+      "script": "hi"
+    },
+    {
+      "text": "mausam",
+      "script": "hi"
+    },
+    {
+      "text": "bahut",
+      "script": "hi"
+    },
+    {
+      "text": "accha",
+      "script": "hi"
+    },
+    {
+      "text": "hai",
+      "script": "hi"
+    }
+  ]
+}

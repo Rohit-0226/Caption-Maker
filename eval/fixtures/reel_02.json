@@ -1,0 +1,48 @@
+{
+  "id": "reel_02",
+  "title": "Gaming Clutch Reel",
+  "category": "reel",
+  "raw_asr": "clutch moment pe gameplay switch hua aur match jeet gaye",
+  "ground_truth": [
+    {
+      "text": "clutch",
+      "script": "en"
+    },
+    {
+      "text": "moment",
+      "script": "en"
+    },
+    {
+      "text": "pe",
+      "script": "hi"
+    },
+    {
+      "text": "gameplay",
+      "script": "en"
+    },
+    {
+      "text": "switch",
+      "script": "en"
+    },
+    {
+      "text": "hua",
+      "script": "hi"
+    },
+    {
+      "text": "aur",
+      "script": "hi"
+    },
+    {
+      "text": "match",
+      "script": "en"
+    },
+    {
+      "text": "jeet",
+      "script": "hi"
+    },
+    {
+      "text": "gaye",
+      "script": "hi"
+    }
+  ]
+}

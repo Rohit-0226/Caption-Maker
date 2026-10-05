@@ -1,0 +1,52 @@
+{
+  "id": "vlog_03",
+  "title": "Cafe Food Review",
+  "category": "vlog",
+  "raw_asr": "ye cafe ka food authentic hai aur vibe bilkul mast hai",
+  "ground_truth": [
+    {
+      "text": "ye",
+      "script": "hi"
+    },
+    {
+      "text": "cafe",
+      "script": "en"
+    },
+    {
+      "text": "ka",
+      "script": "hi"
+    },
+    {
+      "text": "food",
+      "script": "en"
+    },
+    {
+      "text": "authentic",
+      "script": "en"
+    },
+    {
+      "text": "hai",
+      "script": "hi"
+    },
+    {
+      "text": "aur",
+      "script": "hi"
+    },
+    {
+      "text": "vibe",
+      "script": "en"
+    },
+    {
+      "text": "bilkul",
+      "script": "hi"
+    },
+    {
+      "text": "mast",
+      "script": "hi"
+    },
+    {
+      "text": "hai",
+      "script": "hi"
+    }
+  ]
+}

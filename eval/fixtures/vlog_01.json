@@ -1,0 +1,40 @@
+{
+  "id": "vlog_01",
+  "title": "Casual Conversation Vlog",
+  "category": "vlog",
+  "raw_asr": "haan bhai sahi me scene kya hai batao",
+  "ground_truth": [
+    {
+      "text": "haan",
+      "script": "hi"
+    },
+    {
+      "text": "bhai",
+      "script": "hi"
+    },
+    {
+      "text": "sahi",
+      "script": "hi"
+    },
+    {
+      "text": "me",
+      "script": "hi"
+    },
+    {
+      "text": "scene",
+      "script": "en"
+    },
+    {
+      "text": "kya",
+      "script": "hi"
+    },
+    {
+      "text": "hai",
+      "script": "hi"
+    },
+    {
+      "text": "batao",
+      "script": "hi"
+    }
+  ]
+}

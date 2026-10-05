@@ -1,0 +1,52 @@
+{
+  "id": "interview_01",
+  "title": "Founder Startup Interview",
+  "category": "interview",
+  "raw_asr": "startups me product market fit find karna sabse critical challenge hai",
+  "ground_truth": [
+    {
+      "text": "startups",
+      "script": "en"
+    },
+    {
+      "text": "me",
+      "script": "hi"
+    },
+    {
+      "text": "product",
+      "script": "en"
+    },
+    {
+      "text": "market",
+      "script": "en"
+    },
+    {
+      "text": "fit",
+      "script": "en"
+    },
+    {
+      "text": "find",
+      "script": "en"
+    },
+    {
+      "text": "karna",
+      "script": "hi"
+    },
+    {
+      "text": "sabse",
+      "script": "hi"
+    },
+    {
+      "text": "critical",
+      "script": "en"
+    },
+    {
+      "text": "challenge",
+      "script": "en"
+    },
+    {
+      "text": "hai",
+      "script": "hi"
+    }
+  ]
+}

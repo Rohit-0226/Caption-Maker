@@ -1,0 +1,33 @@
+node_modules/
+dist/
+dist-server/
+dist-electron/
+output/
+projects/
+tmp/
+.agents/
+skills-lock.json
+
+# databases and local test files
+*.db
+ai1.json
+
+# secrets — never commit
+.env
+.env.local
+.env.*.local
+
+*.log
+
+# launcher artefacts and state
+launcher/build/
+launcher/bin/
+launcher/logs/
+launcher/state.json
+launcher/.deps.hash
+launcher/.rebuild_failed
+*.old-*
+Caption Maker Web & Share.exe
+
+# large bundled binaries (ffmpeg, ffprobe, cloudflared)
+resources/bin/

@@ -1,0 +1,1881 @@
+{
+  "version": 1,
+  "description": "Caption Maker Controlled Hinglish Vocabulary Database",
+  "entries": [
+    {
+      "word": "aaiye",
+      "approved_form": "aaiye",
+      "alternatives": [],
+      "rejected_forms": [
+        "aiye"
+      ],
+      "context": "respectful imperative 'please come'; double 'a' reflects correct Urdu-Hindi pronunciation",
+      "examples": [
+        "aap aaiye",
+        "yahan aaiye"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "aas-paas",
+      "approved_form": "aas-paas",
+      "alternatives": [
+        "aas paas"
+      ],
+      "rejected_forms": [
+        "Aas paas"
+      ],
+      "context": "compound meaning 'nearby/around'; unhyphenated preferred for flow in standard print",
+      "examples": [
+        "ghar ke aas-paas",
+        "aas-paas dekho"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "word": "ab",
+      "approved_form": "ab",
+      "alternatives": [],
+      "rejected_forms": [
+        "aab"
+      ],
+      "context": "temporal adverb 'now'; short 'a' is correct",
+      "examples": [
+        "ab dekhte hain",
+        "ab kya hoga"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "agar",
+      "approved_form": "agar",
+      "alternatives": [
+        "yadi"
+      ],
+      "rejected_forms": [
+        "ager"
+      ],
+      "context": "conditional conjunction 'if'; standard spelling",
+      "examples": [
+        "agar aap chahein",
+        "agar aisa hua"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "alag-alag",
+      "approved_form": "alag-alag",
+      "alternatives": [
+        "alag alag"
+      ],
+      "rejected_forms": [],
+      "context": "compound reduplication meaning 'different/separate'",
+      "examples": [
+        "alag-alag categories",
+        "alag-alag tareeqe"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "word": "aur",
+      "approved_form": "aur",
+      "alternatives": [],
+      "rejected_forms": [
+        "or"
+      ],
+      "context": "Hindi conjunction 'and'; keep 'or' only in distinct English contexts",
+      "examples": [
+        "aap aur hum",
+        "video aur audio"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "word": "aisa",
+      "approved_form": "aisa",
+      "alternatives": [],
+      "rejected_forms": [
+        "aaisa",
+        "aysa"
+      ],
+      "context": "demonstrative 'like this/such'; single 'a' is preferred",
+      "examples": [
+        "aisa lagta hai",
+        "aisa mat karo"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "accha",
+      "approved_form": "accha",
+      "alternatives": [
+        "achha"
+      ],
+      "rejected_forms": [
+        "acha",
+        "achhaa"
+      ],
+      "context": "adjective/filler 'good/well'; standard transcription",
+      "examples": [
+        "bahut accha hai",
+        "accha kaam kiya"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "bahut",
+      "approved_form": "bahut",
+      "alternatives": [],
+      "rejected_forms": [
+        "bohot",
+        "bhut",
+        "bhot",
+        "bahuth",
+        "bht"
+      ],
+      "context": "degree adverb 'very/much'; standard romanized Hindi",
+      "examples": [
+        "bahut accha",
+        "bahut zyada",
+        "bahut bada"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "bataunga",
+      "approved_form": "bataunga",
+      "alternatives": [],
+      "rejected_forms": [
+        "bataoonga"
+      ],
+      "context": "first person future verb 'I will tell'; cleaner modern transliteration",
+      "examples": [
+        "main aapko bataunga",
+        "sab bataunga"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "bataiye",
+      "approved_form": "bataiye",
+      "alternatives": [
+        "batayiye"
+      ],
+      "rejected_forms": [
+        "btai"
+      ],
+      "context": "respectful imperative 'please tell'",
+      "examples": [
+        "aap bataiye",
+        "comment mein bataiye"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "word": "behtar",
+      "approved_form": "behtar",
+      "alternatives": [],
+      "rejected_forms": [
+        "behatar"
+      ],
+      "context": "comparative adjective 'better'; standard Urdu-origin spelling",
+      "examples": [
+        "yeh option behtar hai",
+        "aur behtar bana sakte hain"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "bilkul",
+      "approved_form": "bilkul",
+      "alternatives": [],
+      "rejected_forms": [
+        "bilkool",
+        "blkl",
+        "bilqul"
+      ],
+      "context": "adverb 'absolutely/completely'; standard spelling",
+      "examples": [
+        "bilkul sahi hai",
+        "bilkul free"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "bhavna",
+      "approved_form": "bhavna",
+      "alternatives": [],
+      "rejected_forms": [
+        "bhavana"
+      ],
+      "context": "noun 'emotion/feeling'; avoids over-extended schwa",
+      "examples": [
+        "uski bhavna",
+        "bhavnao ko samjho"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "chahiye",
+      "approved_form": "chahiye",
+      "alternatives": [],
+      "rejected_forms": [
+        "chaiye",
+        "chaahiye",
+        "chahie"
+      ],
+      "context": "modal verb 'needed/should'; 'h' must be retained",
+      "examples": [
+        "humein chahiye",
+        "aapko kya chahiye"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "cheez",
+      "approved_form": "cheez",
+      "alternatives": [],
+      "rejected_forms": [
+        "chiz"
+      ],
+      "context": "noun 'thing'; 'ee' reflects the long vowel",
+      "examples": [
+        "yeh cheez",
+        "ek nayi cheez"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "cheezein",
+      "approved_form": "cheezein",
+      "alternatives": [],
+      "rejected_forms": [
+        "cheezen",
+        "chizein",
+        "chezen"
+      ],
+      "context": "plural noun 'things'; cheezein is standard",
+      "examples": [
+        "kuch cheezein",
+        "yeh cheezein bahut zaroori hain"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "cheezon",
+      "approved_form": "cheezon",
+      "alternatives": [],
+      "rejected_forms": [
+        "chizon",
+        "chezon"
+      ],
+      "context": "oblique plural 'things'; preferred transliteration",
+      "examples": [
+        "in cheezon par dhyaan do",
+        "baaki cheezon ko chhod kar"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "chahoon",
+      "approved_form": "chahoon",
+      "alternatives": [],
+      "rejected_forms": [
+        "chahun"
+      ],
+      "context": "first person subjunctive 'I wish/want'; more accurate to spoken form",
+      "examples": [
+        "agar main chahoon toh"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "word": "dikhata",
+      "approved_form": "dikhata",
+      "alternatives": [],
+      "rejected_forms": [
+        "dikhaata"
+      ],
+      "context": "verb 'shows'; cleaner romanization without doubled vowel",
+      "examples": [
+        "yeh graph dikhata hai",
+        "main aapko dikhata hoon"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "dobara",
+      "approved_form": "dobara",
+      "alternatives": [
+        "doobara"
+      ],
+      "rejected_forms": [],
+      "context": "adverb 'again'; dobara is most common in print",
+      "examples": [
+        "dobara try karo",
+        "dobara mat bolna"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "word": "dhoondh",
+      "approved_form": "dhoondh",
+      "alternatives": [],
+      "rejected_forms": [
+        "dhundh"
+      ],
+      "context": "verb root 'search/find'; aspirated 'dh' on both ends is correct",
+      "examples": [
+        "solution dhoondh rahe hain",
+        "dhoondh lo"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "dhoondhe",
+      "approved_form": "dhoondhe",
+      "alternatives": [],
+      "rejected_forms": [
+        "dhundhe"
+      ],
+      "context": "verb 'to search'; retain both aspirated 'dh' syllables",
+      "examples": [
+        "kaun dhoondhe",
+        "naya tarika dhoondhe"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "doosra",
+      "approved_form": "doosra",
+      "alternatives": [],
+      "rejected_forms": [
+        "dusra"
+      ],
+      "context": "ordinal/adjective 'second/other'; long 'oo' reflects vowel length",
+      "examples": [
+        "doosra point",
+        "doosra tareeqa"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "dekhein",
+      "approved_form": "dekhein",
+      "alternatives": [],
+      "rejected_forms": [
+        "dekhen"
+      ],
+      "context": "subjunctive/imperative 'let us see'; cleaner subtitle form",
+      "examples": [
+        "chalo dekhein",
+        "aage dekhein"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "word": "ekdum",
+      "approved_form": "ekdum",
+      "alternatives": [],
+      "rejected_forms": [
+        "ek dam"
+      ],
+      "context": "adverb 'completely/suddenly'; written as one word in standard usage",
+      "examples": [
+        "ekdum simple",
+        "ekdum clear"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "isliye",
+      "approved_form": "isliye",
+      "alternatives": [
+        "isiliye"
+      ],
+      "rejected_forms": [
+        "esliye",
+        "isleye",
+        "islie"
+      ],
+      "context": "conjunction 'therefore/so'; correct vowel 'i' not 'e'",
+      "examples": [
+        "isliye maine yeh kiya",
+        "isliye hum kehte hain"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "gaya",
+      "approved_form": "gaya",
+      "alternatives": [],
+      "rejected_forms": [
+        "gya"
+      ],
+      "context": "past masculine verb 'went/done'; full syllable written out",
+      "examples": [
+        "kaam ho gaya",
+        "woh chala gaya"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "gayi",
+      "approved_form": "gayi",
+      "alternatives": [],
+      "rejected_forms": [
+        "gai"
+      ],
+      "context": "past feminine verb; retain 'y' for standard transliteration",
+      "examples": [
+        "baat ban gayi",
+        "woh chali gayi"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "gaye",
+      "approved_form": "gaye",
+      "alternatives": [],
+      "rejected_forms": [
+        "gae"
+      ],
+      "context": "past plural/honorific verb; retain 'y'",
+      "examples": [
+        "log chale gaye",
+        "sab samajh gaye"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "hai",
+      "approved_form": "hai",
+      "alternatives": [],
+      "rejected_forms": [
+        "h"
+      ],
+      "context": "singular copula 'is'; one person/thing/idea; never abbreviated as 'h'",
+      "examples": [
+        "Ram ghar par hai",
+        "yeh stock achha hai",
+        "yeh idea interesting hai"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "hain",
+      "approved_form": "hain",
+      "alternatives": [],
+      "rejected_forms": [
+        "hn",
+        "hen"
+      ],
+      "context": "plural / respect copula 'are'; multiple entities or honorific respect (Aap, Sir, Teacher)",
+      "examples": [
+        "log pareshaan hain",
+        "yeh companies profitable hain",
+        "aap kaise hain?"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "hamara",
+      "approved_form": "hamara",
+      "alternatives": [],
+      "rejected_forms": [
+        "humara"
+      ],
+      "context": "first person plural possessive 'our'; standard Hindi",
+      "examples": [
+        "hamara target",
+        "hamara channel"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "hamari",
+      "approved_form": "hamari",
+      "alternatives": [],
+      "rejected_forms": [
+        "humaari"
+      ],
+      "context": "feminine possessive 'our'",
+      "examples": [
+        "hamari team",
+        "hamari video"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "hamare",
+      "approved_form": "hamare",
+      "alternatives": [],
+      "rejected_forms": [
+        "humare"
+      ],
+      "context": "plural/oblique possessive 'our'",
+      "examples": [
+        "hamare paas",
+        "hamare saath"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "hamein",
+      "approved_form": "hamein",
+      "alternatives": [
+        "humein",
+        "hame"
+      ],
+      "rejected_forms": [],
+      "context": "first person plural objective 'to us'; colloquial and standard both common",
+      "examples": [
+        "hamein bataiye",
+        "humein samajh nahi aaya"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "word": "hum",
+      "approved_form": "hum",
+      "alternatives": [],
+      "rejected_forms": [
+        "ham"
+      ],
+      "context": "first person plural pronoun 'we'; correct spelling",
+      "examples": [
+        "hum karenge",
+        "hum milte hain"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "huye",
+      "approved_form": "huye",
+      "alternatives": [
+        "hue"
+      ],
+      "rejected_forms": [
+        "huwe"
+      ],
+      "context": "participle 'happened/became'; 'y' not 'w'",
+      "examples": [
+        "shuru huye",
+        "paas huye"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "word": "hoon",
+      "approved_form": "hoon",
+      "alternatives": [],
+      "rejected_forms": [
+        "hun",
+        "hu",
+        "hoo"
+      ],
+      "context": "first-person singular copula 'am'; correct spelling",
+      "examples": [
+        "main theek hoon",
+        "main kar raha hoon"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "inke",
+      "approved_form": "inke",
+      "alternatives": [],
+      "rejected_forms": [
+        "inkee"
+      ],
+      "context": "possessive/oblique pronoun 'their/these'; no doubled vowel at end",
+      "examples": [
+        "inke saath",
+        "inke paas"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "intezaar",
+      "approved_form": "intezaar",
+      "alternatives": [],
+      "rejected_forms": [
+        "intzaar"
+      ],
+      "context": "noun 'wait'; full syllable 'te' must be retained",
+      "examples": [
+        "intezaar karo",
+        "intezaar khatam"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "is",
+      "approved_form": "is",
+      "alternatives": [
+        "iss"
+      ],
+      "rejected_forms": [
+        "es"
+      ],
+      "context": "demonstrative pronoun 'this'",
+      "examples": [
+        "is video mein",
+        "is baat par"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "word": "jata",
+      "approved_form": "jata",
+      "alternatives": [],
+      "rejected_forms": [
+        "jaata"
+      ],
+      "context": "masculine habitual verb 'goes'; single 'a' cleaner in subtitles",
+      "examples": [
+        "woh office jata hai",
+        "ruk jata hai"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "word": "jati",
+      "approved_form": "jati",
+      "alternatives": [],
+      "rejected_forms": [
+        "jaati"
+      ],
+      "context": "feminine habitual verb 'goes'",
+      "examples": [
+        "woh school jati hai"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "word": "jayenge",
+      "approved_form": "jayenge",
+      "alternatives": [
+        "jaayenge"
+      ],
+      "rejected_forms": [],
+      "context": "plural/honorific future verb 'will go'; jayenge is cleaner",
+      "examples": [
+        "hum kal jayenge",
+        "aap kab jayenge?"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "word": "jahan",
+      "approved_form": "jahan",
+      "alternatives": [],
+      "rejected_forms": [
+        "jahaan"
+      ],
+      "context": "relative adverb 'where'; 'jahaan' with long aa is reserved for universe",
+      "examples": [
+        "jahan hum ja rahe hain",
+        "jahan tak mujhe pata hai"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "word": "jinhe",
+      "approved_form": "jinhe",
+      "alternatives": [
+        "jinhein"
+      ],
+      "rejected_forms": [
+        "jinhen"
+      ],
+      "context": "relative pronoun objective 'whom/which'",
+      "examples": [
+        "jinhe pata hai",
+        "jinhe chahiye"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "word": "jo",
+      "approved_form": "jo",
+      "alternatives": [],
+      "rejected_forms": [
+        "joh"
+      ],
+      "context": "relative pronoun 'who/which'; no 'h' needed",
+      "examples": [
+        "jo log keh rahe hain",
+        "jo bhi ho"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "kaun",
+      "approved_form": "kaun",
+      "alternatives": [],
+      "rejected_forms": [
+        "kon"
+      ],
+      "context": "interrogative pronoun 'who'; 'au' vowel must be represented",
+      "examples": [
+        "kaun hai?",
+        "kaun karega?"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "kayi",
+      "approved_form": "kayi",
+      "alternatives": [],
+      "rejected_forms": [
+        "kai"
+      ],
+      "context": "quantifier 'several/many'; retain 'y'",
+      "examples": [
+        "kayi log",
+        "kayi baar"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "word": "karein",
+      "approved_form": "karein",
+      "alternatives": [],
+      "rejected_forms": [
+        "karen"
+      ],
+      "context": "formal/preferred imperative or subjunctive 'do/should do'",
+      "examples": [
+        "subscribe karein",
+        "share karein",
+        "kya karein"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "karta",
+      "approved_form": "karta",
+      "alternatives": [],
+      "rejected_forms": [
+        "kartaa"
+      ],
+      "context": "masculine habitual verb 'does'; no doubled vowel at end",
+      "examples": [
+        "main kaam karta hoon",
+        "karta hai"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "keval",
+      "approved_form": "keval",
+      "alternatives": [
+        "sirf"
+      ],
+      "rejected_forms": [
+        "kewal"
+      ],
+      "context": "adverb 'only'; standard Sanskrit-origin spelling with 'v'",
+      "examples": [
+        "keval aapke liye",
+        "keval ₹500"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "kyun",
+      "approved_form": "kyun",
+      "alternatives": [],
+      "rejected_forms": [
+        "kyon",
+        "kyu",
+        "kiyu",
+        "kyoon"
+      ],
+      "context": "question word 'why'; preferred transliteration",
+      "examples": [
+        "kyun nahi?",
+        "aisa kyun hua?"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "kyunki",
+      "approved_form": "kyunki",
+      "alternatives": [],
+      "rejected_forms": [
+        "kyonki",
+        "kyuki",
+        "kyunkii"
+      ],
+      "context": "conjunction 'because'; consistent with kyun preference",
+      "examples": [
+        "kyunki yeh zaroori hai",
+        "kyunki mujhe lagta hai"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "lekin",
+      "approved_form": "lekin",
+      "alternatives": [
+        "magar"
+      ],
+      "rejected_forms": [
+        "lakin",
+        "lekn"
+      ],
+      "context": "adversative conjunction 'but'; standard Urdu-origin word",
+      "examples": [
+        "lekin ek dikkat hai",
+        "lekin aap dekho"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "maaniye",
+      "approved_form": "maaniye",
+      "alternatives": [],
+      "rejected_forms": [
+        "maniye"
+      ],
+      "context": "imperative 'believe/consider'; long vowel 'aa' reflects correct pronunciation",
+      "examples": [
+        "meri baat maaniye",
+        "sach maaniye"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "main",
+      "approved_form": "main",
+      "alternatives": [],
+      "rejected_forms": [
+        "mai"
+      ],
+      "context": "first-person pronoun 'I'; never confuse with preposition 'mein'",
+      "examples": [
+        "main ja raha hoon",
+        "main kya karun",
+        "main theek hoon"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "mein",
+      "approved_form": "mein",
+      "alternatives": [],
+      "rejected_forms": [
+        "me"
+      ],
+      "context": "locative postposition 'in/inside'; never write as 'me'",
+      "examples": [
+        "video mein",
+        "ghar mein",
+        "meeting mein"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "maaloom",
+      "approved_form": "maaloom",
+      "alternatives": [
+        "maloom"
+      ],
+      "rejected_forms": [],
+      "context": "noun/adjective 'known'; double 'aa' reflects long vowel",
+      "examples": [
+        "mujhe maaloom hai",
+        "kisi ko nahi maaloom"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "word": "mushkil",
+      "approved_form": "mushkil",
+      "alternatives": [],
+      "rejected_forms": [
+        "muskil"
+      ],
+      "context": "adjective 'difficult'; 'h' in 'shk' cluster must be kept",
+      "examples": [
+        "yeh bahut mushkil hai",
+        "mushkil kaam"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "maze",
+      "approved_form": "maze",
+      "alternatives": [],
+      "rejected_forms": [
+        "maje"
+      ],
+      "context": "noun 'fun'; 'z' is correct Urdu-origin, 'j' is incorrect",
+      "examples": [
+        "maze karo",
+        "bahut maze aaye"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "maang",
+      "approved_form": "maang",
+      "alternatives": [],
+      "rejected_forms": [
+        "mang"
+      ],
+      "context": "noun/verb 'demand/ask'; long 'aa' reflects correct vowel",
+      "examples": [
+        "maang rahe hain",
+        "public ki maang"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "nahi",
+      "approved_form": "nahi",
+      "alternatives": [
+        "nahin"
+      ],
+      "rejected_forms": [
+        "naheen",
+        "nhi",
+        "nhn"
+      ],
+      "context": "negation 'not/no'; subtitle style shortening preferred; avoid chat abbreviations",
+      "examples": [
+        "nahi pata",
+        "aisa nahi hai",
+        "nahi hoga"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "naye",
+      "approved_form": "naye",
+      "alternatives": [],
+      "rejected_forms": [
+        "nye"
+      ],
+      "context": "plural adjective 'new'; full syllable must be written",
+      "examples": [
+        "naye creators",
+        "naye features"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "neeche",
+      "approved_form": "neeche",
+      "alternatives": [],
+      "rejected_forms": [
+        "niche"
+      ],
+      "context": "postposition/adverb 'below/down'; 'ee' reflects vowel sound; avoids English word 'niche'",
+      "examples": [
+        "neeche comment karo",
+        "neeche dekho"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "nayi",
+      "approved_form": "nayi",
+      "alternatives": [],
+      "rejected_forms": [
+        "nai"
+      ],
+      "context": "feminine adjective 'new'; retain 'y'",
+      "examples": [
+        "nayi video",
+        "nayi opportunity"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "naukriyan",
+      "approved_form": "naukriyan",
+      "alternatives": [],
+      "rejected_forms": [
+        "nokriyan"
+      ],
+      "context": "noun 'jobs'; 'au' vowel in first syllable",
+      "examples": [
+        "nayi naukriyan",
+        "naukriyan badh rahi hain"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "pehle",
+      "approved_form": "pehle",
+      "alternatives": [],
+      "rejected_forms": [
+        "pahle",
+        "pahale",
+        "phle",
+        "pehley"
+      ],
+      "context": "adverb 'earlier/before'; common modern spelling",
+      "examples": [
+        "pehle yeh karo",
+        "sabse pehle"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "pichhe",
+      "approved_form": "pichhe",
+      "alternatives": [
+        "peeche"
+      ],
+      "rejected_forms": [
+        "piche"
+      ],
+      "context": "postposition 'behind'; doubled 'hh' or 'ee' reflects sound",
+      "examples": [
+        "pichhe dekho",
+        "iske peeche kya hai"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "word": "pichhle",
+      "approved_form": "pichhle",
+      "alternatives": [
+        "pichle"
+      ],
+      "rejected_forms": [
+        "pichjle"
+      ],
+      "context": "adjective 'previous/last'",
+      "examples": [
+        "pichhle hafte",
+        "pichhle saal"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "word": "puch",
+      "approved_form": "pooch",
+      "alternatives": [
+        "puch"
+      ],
+      "rejected_forms": [
+        "poochh"
+      ],
+      "context": "verb root 'ask'",
+      "examples": [
+        "pooch lo",
+        "unse pooch"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "word": "pura",
+      "approved_form": "pura",
+      "alternatives": [
+        "poora"
+      ],
+      "rejected_forms": [],
+      "context": "adjective 'complete/full'",
+      "examples": [
+        "pura video dekho",
+        "pura din"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "word": "par",
+      "approved_form": "par",
+      "alternatives": [],
+      "rejected_forms": [
+        "per"
+      ],
+      "context": "Hindi preposition 'on/at/but'; do not write as English 'per'",
+      "examples": [
+        "time par aana",
+        "ghar par hai",
+        "par ek problem hai"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "pahunch",
+      "approved_form": "pahunch",
+      "alternatives": [],
+      "rejected_forms": [
+        "pahuch"
+      ],
+      "context": "noun/verb 'reach'; final nasal 'n' must be retained",
+      "examples": [
+        "pahunch gaye",
+        "uski pahunch"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "rehta",
+      "approved_form": "rehta",
+      "alternatives": [
+        "rahta"
+      ],
+      "rejected_forms": [],
+      "context": "masculine habitual verb 'lives/remains'; colloquial urban preference",
+      "examples": [
+        "woh Mumbai mein rehta hai",
+        "active rehta hai"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "word": "rupaye",
+      "approved_form": "rupaye",
+      "alternatives": [
+        "rupiye"
+      ],
+      "rejected_forms": [
+        "rupya"
+      ],
+      "context": "plural currency 'rupees'; retains all syllables correctly",
+      "examples": [
+        "₹500 rupaye",
+        "kitne rupaye lagenge"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "sabse",
+      "approved_form": "sabse",
+      "alternatives": [],
+      "rejected_forms": [
+        "sabase"
+      ],
+      "context": "superlative marker 'most/best of all'; contracted form is standard",
+      "examples": [
+        "sabse behtar",
+        "sabse pehle",
+        "sabse zyada"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "samajhte",
+      "approved_form": "samajhte",
+      "alternatives": [],
+      "rejected_forms": [
+        "samajte"
+      ],
+      "context": "plural habitual verb 'understand'; aspirated 'jh' must be retained",
+      "examples": [
+        "aap samajhte hain",
+        "sab samajhte hain"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "samajhne",
+      "approved_form": "samajhne",
+      "alternatives": [],
+      "rejected_forms": [
+        "samajne"
+      ],
+      "context": "infinitive/oblique 'to understand'; retain aspirated 'jh'",
+      "examples": [
+        "samajhne ke liye",
+        "isko samajhne ki zaroorat hai"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "saath",
+      "approved_form": "saath",
+      "alternatives": [],
+      "rejected_forms": [
+        "sath"
+      ],
+      "context": "postposition 'with'; long 'aa' and final 'th' both needed",
+      "examples": [
+        "hamare saath",
+        "doston ke saath"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "shayad",
+      "approved_form": "shayad",
+      "alternatives": [],
+      "rejected_forms": [
+        "sayad",
+        "shyd"
+      ],
+      "context": "adverb 'perhaps/maybe'; 'sh' must not be reduced to 's'",
+      "examples": [
+        "shayad aapko pata ho",
+        "shayad kal hoga"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "shuru",
+      "approved_form": "shuru",
+      "alternatives": [],
+      "rejected_forms": [
+        "suru"
+      ],
+      "context": "noun/verb 'start/begin'; 'sh' must be retained",
+      "examples": [
+        "video shuru karte hain",
+        "kaam shuru hua"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "sakein",
+      "approved_form": "sakein",
+      "alternatives": [
+        "saken"
+      ],
+      "rejected_forms": [],
+      "context": "potential/subjunctive 'may/could'; preferred subtitle style",
+      "examples": [
+        "taaki hum seekh sakein",
+        "aage badh sakein"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "word": "tumhara",
+      "approved_form": "tumhara",
+      "alternatives": [],
+      "rejected_forms": [
+        "tumharaa"
+      ],
+      "context": "second person possessive 'your'; no doubled vowel at end",
+      "examples": [
+        "tumhara naam",
+        "tumhara channel"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "teeno",
+      "approved_form": "teeno",
+      "alternatives": [
+        "teenon"
+      ],
+      "rejected_forms": [],
+      "context": "numeral 'all three'; cleaner subtitle form",
+      "examples": [
+        "yeh teeno points",
+        "hum teeno"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "word": "unhone",
+      "approved_form": "unhone",
+      "alternatives": [],
+      "rejected_forms": [
+        "un hone"
+      ],
+      "context": "third person agentive pronoun 'they/he (honorific)'; written as one word",
+      "examples": [
+        "unhone kaha tha",
+        "unhone kiya"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "usi",
+      "approved_form": "usi",
+      "alternatives": [],
+      "rejected_forms": [
+        "usee"
+      ],
+      "context": "emphatic demonstrative 'that very/same'; no doubled vowel at end",
+      "examples": [
+        "usi time par",
+        "usi jagah"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "ussi",
+      "approved_form": "ussi",
+      "alternatives": [],
+      "rejected_forms": [
+        "ushi"
+      ],
+      "context": "doubled 's' distinguishes from 'usi'",
+      "examples": [
+        "ussi ko dena",
+        "ussi se poocho"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "usmein",
+      "approved_form": "usmein",
+      "alternatives": [],
+      "rejected_forms": [
+        "usme"
+      ],
+      "context": "postpositional 'in that/in it'; full form with nasal 'n' is accurate",
+      "examples": [
+        "usmein kya hai",
+        "usmein dekho"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "wahi",
+      "approved_form": "wahi",
+      "alternatives": [],
+      "rejected_forms": [
+        "vahin"
+      ],
+      "context": "adverb/pronoun 'the same/right there'; 'w' initial preferred in colloquial Hinglish",
+      "examples": [
+        "wahi toh baat hai",
+        "wahi chiz"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "wahaan",
+      "approved_form": "wahan",
+      "alternatives": [
+        "wahaan"
+      ],
+      "rejected_forms": [
+        "vahan"
+      ],
+      "context": "adverb 'there'; 'w' initial colloquial preference",
+      "examples": [
+        "wahan jao",
+        "wahan kya chal raha hai"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "word": "woh",
+      "approved_form": "woh",
+      "alternatives": [
+        "wo"
+      ],
+      "rejected_forms": [],
+      "context": "third person pronoun 'that/he/she'; longer form 'woh' preferred for clarity",
+      "examples": [
+        "woh ja raha hai",
+        "woh kya hai?"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "word": "wagairah",
+      "approved_form": "wagairah",
+      "alternatives": [
+        "vagaira"
+      ],
+      "rejected_forms": [
+        "wagera"
+      ],
+      "context": "phrase 'et cetera/and so on'; full form is standard",
+      "examples": [
+        "editing wagairah",
+        "tools wagairah"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "word": "yahan",
+      "approved_form": "yahan",
+      "alternatives": [],
+      "rejected_forms": [
+        "yahaan"
+      ],
+      "context": "spatial adverb 'here'; cleaner subtitle style without doubled vowel",
+      "examples": [
+        "yahan aao",
+        "yahan par click karo"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "yeh",
+      "approved_form": "yeh",
+      "alternatives": [
+        "ye"
+      ],
+      "rejected_forms": [],
+      "context": "demonstrative pronoun 'this/these'; longer form 'yeh' preferred for subtitle clarity",
+      "examples": [
+        "yeh video",
+        "yeh bahut accha hai"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "word": "yaad",
+      "approved_form": "yaad",
+      "alternatives": [],
+      "rejected_forms": [
+        "yad"
+      ],
+      "context": "noun 'memory/remember'; long 'aa' reflects correct vowel",
+      "examples": [
+        "yaad rakhna",
+        "mujhe yaad hai"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "yakeen",
+      "approved_form": "yakeen",
+      "alternatives": [],
+      "rejected_forms": [
+        "yakin"
+      ],
+      "context": "noun 'belief/confidence'; 'ee' reflects Urdu-origin pronunciation",
+      "examples": [
+        "mujhe poora yakeen hai",
+        "yakeen nahi hoga"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "ya",
+      "approved_form": "ya",
+      "alternatives": [],
+      "rejected_forms": [
+        "yah",
+        "yaa"
+      ],
+      "context": "disjunctive conjunction 'or'",
+      "examples": [
+        "yeh ya woh",
+        "aaj ya kal"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "yahi",
+      "approved_form": "yahi",
+      "alternatives": [
+        "yehi"
+      ],
+      "rejected_forms": [],
+      "context": "emphatic demonstrative 'this very thing/right here'; yahi is slightly more common",
+      "examples": [
+        "yahi main keh raha tha",
+        "yahi best tareeqa hai"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "word": "zaroor",
+      "approved_form": "zaroor",
+      "alternatives": [],
+      "rejected_forms": [
+        "jarur",
+        "zarur",
+        "jroor"
+      ],
+      "context": "adverb 'definitely/surely'; 'z' reflects Urdu origin; preferred over 'j'",
+      "examples": [
+        "zaroor try karein",
+        "zaroor dekhiye"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "zaroori",
+      "approved_form": "zaroori",
+      "alternatives": [],
+      "rejected_forms": [
+        "jaruri",
+        "zaruri"
+      ],
+      "context": "adjective 'necessary'; same principle as zaroor",
+      "examples": [
+        "yeh zaroori hai",
+        "zaroori baatein"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "zyada",
+      "approved_form": "zyada",
+      "alternatives": [],
+      "rejected_forms": [
+        "jyada",
+        "jayaadaa",
+        "jyaada",
+        "zaada",
+        "jda"
+      ],
+      "context": "quantifier/adverb 'more/excessive'; 'zyada' is the project's consistent choice",
+      "examples": [
+        "zyada mat socho",
+        "bahut zyada profitable"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "zindagi",
+      "approved_form": "zindagi",
+      "alternatives": [],
+      "rejected_forms": [
+        "jindagi",
+        "zindgi"
+      ],
+      "context": "noun 'life'; 'z' reflects Urdu origin; preferred over 'j'",
+      "examples": [
+        "zindagi mein",
+        "hamari zindagi"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "zyadaatar",
+      "approved_form": "zyadaatar",
+      "alternatives": [
+        "zyadatar"
+      ],
+      "rejected_forms": [
+        "jyadatar"
+      ],
+      "context": "adverb 'mostly/most of the time'; follow zyada choice",
+      "examples": [
+        "zyadaatar log",
+        "zyadaatar cases mein"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "word": "theek",
+      "approved_form": "theek",
+      "alternatives": [],
+      "rejected_forms": [
+        "thik",
+        "theekh",
+        "thk"
+      ],
+      "context": "adjective 'okay/fine/correct'",
+      "examples": [
+        "sab theek hai",
+        "theek se karo"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "kaise",
+      "approved_form": "kaise",
+      "alternatives": [],
+      "rejected_forms": [
+        "kese",
+        "kaisey",
+        "kse"
+      ],
+      "context": "question word 'how'",
+      "examples": [
+        "kaise karein?",
+        "aap kaise hain?"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "toh",
+      "approved_form": "toh",
+      "alternatives": [],
+      "rejected_forms": [],
+      "context": "discourse particle 'then/so'; 'toh' avoids clash with English 'to'",
+      "examples": [
+        "agar aap bolo toh",
+        "toh chalo shuru karein"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "word": "koshish",
+      "approved_form": "koshish",
+      "alternatives": [],
+      "rejected_forms": [
+        "kosis",
+        "koshis"
+      ],
+      "context": "noun 'attempt/try'",
+      "examples": [
+        "koshish karo",
+        "meri koshish"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "shuruat",
+      "approved_form": "shuruat",
+      "alternatives": [
+        "shuruaat"
+      ],
+      "rejected_forms": [
+        "suruaat",
+        "suruwat"
+      ],
+      "context": "noun 'beginning/start'",
+      "examples": [
+        "acchi shuruat",
+        "shuruat mein"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "khatam",
+      "approved_form": "khatam",
+      "alternatives": [],
+      "rejected_forms": [
+        "khatm",
+        "khatama"
+      ],
+      "context": "adjective 'finished/ended'",
+      "examples": [
+        "kaam khatam",
+        "video khatam"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "chalu",
+      "approved_form": "chalu",
+      "alternatives": [],
+      "rejected_forms": [
+        "chaaloo",
+        "chaalu"
+      ],
+      "context": "adjective/verb 'active/started/running'",
+      "examples": [
+        "recording chalu hai",
+        "chalu karo"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "dhanyawad",
+      "approved_form": "dhanyawad",
+      "alternatives": [
+        "dhanyavaad"
+      ],
+      "rejected_forms": [
+        "dhanyawaad"
+      ],
+      "context": "noun 'thank you'",
+      "examples": [
+        "bahut bahut dhanyawad"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "colour",
+      "approved_form": "colour",
+      "alternatives": [],
+      "rejected_forms": [
+        "color"
+      ],
+      "context": "British English spelling preference per project style guide",
+      "examples": [
+        "background colour",
+        "text colour"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "word": "favour",
+      "approved_form": "favour",
+      "alternatives": [],
+      "rejected_forms": [
+        "favor"
+      ],
+      "context": "British English spelling preference per project style guide",
+      "examples": [
+        "in our favour"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "word": "centre",
+      "approved_form": "centre",
+      "alternatives": [],
+      "rejected_forms": [
+        "center"
+      ],
+      "context": "British English spelling preference per project style guide",
+      "examples": [
+        "screen centre",
+        "call centre"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "word": "theatre",
+      "approved_form": "theatre",
+      "alternatives": [],
+      "rejected_forms": [
+        "theater"
+      ],
+      "context": "British English spelling preference per project style guide",
+      "examples": [
+        "movie theatre"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "word": "analyse",
+      "approved_form": "analyse",
+      "alternatives": [],
+      "rejected_forms": [
+        "analyze"
+      ],
+      "context": "British English spelling preference ('Analyse not Analyze')",
+      "examples": [
+        "data analyse karenge",
+        "analyse this video"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "word": "organise",
+      "approved_form": "organise",
+      "alternatives": [],
+      "rejected_forms": [
+        "organize"
+      ],
+      "context": "British English spelling preference per project style guide",
+      "examples": [
+        "files organise karo"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "word": "realise",
+      "approved_form": "realise",
+      "alternatives": [],
+      "rejected_forms": [
+        "realize"
+      ],
+      "context": "British English spelling preference per project style guide",
+      "examples": [
+        "mujhe realise hua"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "word": "defence",
+      "approved_form": "defence",
+      "alternatives": [],
+      "rejected_forms": [
+        "defense"
+      ],
+      "context": "British English spelling preference per project style guide",
+      "examples": [
+        "defence sector"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "word": "cancelled",
+      "approved_form": "cancelled",
+      "alternatives": [],
+      "rejected_forms": [
+        "canceled"
+      ],
+      "context": "British English spelling preference per project style guide",
+      "examples": [
+        "event cancelled ho gaya"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "word": "travelling",
+      "approved_form": "travelling",
+      "alternatives": [],
+      "rejected_forms": [
+        "traveling"
+      ],
+      "context": "British English spelling preference per project style guide",
+      "examples": [
+        "travelling vlogs"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "word": "behaviour",
+      "approved_form": "behaviour",
+      "alternatives": [],
+      "rejected_forms": [
+        "behavior"
+      ],
+      "context": "British English spelling preference ('Behaviour not Behavior')",
+      "examples": [
+        "user behaviour",
+        "customer behaviour"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "word": "doston",
+      "approved_form": "doston",
+      "alternatives": [
+        "dosto"
+      ],
+      "rejected_forms": [
+        "dostho"
+      ],
+      "context": "vocative plural 'friends/viewers'; standard greeting",
+      "examples": [
+        "Namaste doston",
+        "kya haal hai doston"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "ismein",
+      "approved_form": "ismein",
+      "alternatives": [],
+      "rejected_forms": [
+        "isme"
+      ],
+      "context": "postpositional 'in this'; standard Roman Hinglish with nasal 'n'",
+      "examples": [
+        "ismein kya hai",
+        "ismein dekho"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "jismein",
+      "approved_form": "jismein",
+      "alternatives": [],
+      "rejected_forms": [
+        "jisme"
+      ],
+      "context": "relative postpositional 'in which'",
+      "examples": [
+        "jismein hum seekhenge"
+      ],
+      "confidence": 1
+    },
+    {
+      "word": "subscribe",
+      "approved_form": "subscribe",
+      "alternatives": [],
+      "rejected_forms": [],
+      "context": "creator action 'subscribe'; preserved English word",
+      "examples": [
+        "channel ko subscribe karein"
+      ],
+      "confidence": 1
+    }
+  ]
+}

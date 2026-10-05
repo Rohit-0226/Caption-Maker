@@ -1,0 +1,44 @@
+{
+  "id": "tech_03",
+  "title": "Docker & Git Workflow",
+  "category": "tech",
+  "raw_asr": "docker container build karke git repo me push karo",
+  "ground_truth": [
+    {
+      "text": "docker",
+      "script": "en"
+    },
+    {
+      "text": "container",
+      "script": "en"
+    },
+    {
+      "text": "build",
+      "script": "en"
+    },
+    {
+      "text": "karke",
+      "script": "hi"
+    },
+    {
+      "text": "git",
+      "script": "en"
+    },
+    {
+      "text": "repo",
+      "script": "en"
+    },
+    {
+      "text": "me",
+      "script": "hi"
+    },
+    {
+      "text": "push",
+      "script": "en"
+    },
+    {
+      "text": "karo",
+      "script": "hi"
+    }
+  ]
+}

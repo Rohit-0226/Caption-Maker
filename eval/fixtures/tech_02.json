@@ -1,0 +1,48 @@
+{
+  "id": "tech_02",
+  "title": "Express Backend API",
+  "category": "tech",
+  "raw_asr": "server pe express route configure karo aur endpoint test karo",
+  "ground_truth": [
+    {
+      "text": "server",
+      "script": "en"
+    },
+    {
+      "text": "pe",
+      "script": "hi"
+    },
+    {
+      "text": "express",
+      "script": "en"
+    },
+    {
+      "text": "route",
+      "script": "en"
+    },
+    {
+      "text": "configure",
+      "script": "en"
+    },
+    {
+      "text": "karo",
+      "script": "hi"
+    },
+    {
+      "text": "aur",
+      "script": "hi"
+    },
+    {
+      "text": "endpoint",
+      "script": "en"
+    },
+    {
+      "text": "test",
+      "script": "en"
+    },
+    {
+      "text": "karo",
+      "script": "hi"
+    }
+  ]
+}

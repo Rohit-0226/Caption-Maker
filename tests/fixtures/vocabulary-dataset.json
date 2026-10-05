@@ -1,0 +1,216 @@
+{
+  "version": 1,
+  "description": "Caption Maker Internal Vocabulary Regression Test Dataset",
+  "cases": [
+    {
+      "id": "rej-01",
+      "category": "rejected",
+      "input": "Yeh video bohot accha hai",
+      "expected": "Yeh video bahut accha hai",
+      "notes": "Normalizes rejected 'bohot' to approved 'bahut'"
+    },
+    {
+      "id": "rej-02",
+      "category": "rejected",
+      "input": "Humare paas jyada time nahi hai",
+      "expected": "Hamare paas zyada time nahi hai",
+      "notes": "Normalizes rejected 'humare' to 'hamare' and 'jyada' to 'zyada'"
+    },
+    {
+      "id": "rej-03",
+      "category": "rejected",
+      "input": "Aap jarur comment mein batayiye",
+      "expected": "Aap zaroor comment mein bataiye",
+      "notes": "Normalizes 'jarur' to 'zaroor' and 'batayiye' to 'bataiye'"
+    },
+    {
+      "id": "rej-04",
+      "category": "rejected",
+      "input": "Humein yeh chaiye abhi",
+      "expected": "Hamein yeh chahiye abhi",
+      "notes": "Normalizes 'chaiye' to 'chahiye' and 'humein' to 'hamein'"
+    },
+    {
+      "id": "rej-05",
+      "category": "rejected",
+      "input": "Yeh chiz ek dam simple hai",
+      "expected": "Yeh cheez ekdum simple hai",
+      "notes": "Normalizes 'chiz' to 'cheez' and compound 'ek dam' to 'ekdum'"
+    },
+    {
+      "id": "rej-06",
+      "category": "rejected",
+      "input": "Esliye maine pahle try kiya",
+      "expected": "Isliye maine pehle try kiya",
+      "notes": "Normalizes 'esliye' to 'isliye' and 'pahle' to 'pehle'"
+    },
+    {
+      "id": "rej-07",
+      "category": "rejected",
+      "input": "Sabse pahale dhoondh lo",
+      "expected": "Sabse pehle dhoondh lo",
+      "notes": "Normalizes 'pahale' to 'pehle' and preserves correct 'dhoondh'"
+    },
+    {
+      "id": "rej-08",
+      "category": "rejected",
+      "input": "Aap kon ho aur kyu aaye?",
+      "expected": "Aap kaun ho aur kyun aaye?",
+      "notes": "Normalizes 'kon' to 'kaun' and 'kyu' to 'kyun'"
+    },
+    {
+      "id": "rej-09",
+      "category": "rejected",
+      "input": "Kyonki jindagi mein muskil aati hai",
+      "expected": "Kyunki zindagi mein mushkil aati hai",
+      "notes": "Normalizes 'kyonki' -> 'kyunki', 'jindagi' -> 'zindagi', 'muskil' -> 'mushkil'"
+    },
+    {
+      "id": "rej-10",
+      "category": "rejected",
+      "input": "Main aapko bataoonga suru se",
+      "expected": "Main aapko bataunga shuru se",
+      "notes": "Normalizes 'bataoonga' to 'bataunga' and 'suru' to 'shuru'"
+    },
+    {
+      "id": "ctx-01",
+      "category": "homophone_context",
+      "input": "Main video mein explain kar raha hoon",
+      "expected": "Main video mein explain kar raha hoon",
+      "notes": "Preserves 'main' (I) and 'mein' (in) correctly based on context"
+    },
+    {
+      "id": "ctx-02",
+      "category": "homophone_context",
+      "input": "Is video me main bataunga",
+      "expected": "Is video mein main bataunga",
+      "notes": "Disambiguates 'video me' to 'video mein' (preposition) before 'main' (pronoun)"
+    },
+    {
+      "id": "ctx-03",
+      "category": "homophone_context",
+      "input": "Ghar me kaun h?",
+      "expected": "Ghar mein kaun hai?",
+      "notes": "Disambiguates 'ghar me' to 'ghar mein' and expands 'h' to singular 'hai'"
+    },
+    {
+      "id": "ctx-04",
+      "category": "homophone_context",
+      "input": "Aap kaise hai sir?",
+      "expected": "Aap kaise hain sir?",
+      "notes": "Upgrades copula to respectful 'hain' for honorific 'Aap' and 'sir'"
+    },
+    {
+      "id": "ctx-05",
+      "category": "homophone_context",
+      "input": "Log pareshaan hai",
+      "expected": "Log pareshaan hain",
+      "notes": "Upgrades copula to plural 'hain' for plural subject 'Log'"
+    },
+    {
+      "id": "ctx-06",
+      "category": "homophone_context",
+      "input": "Ram ghar par hai",
+      "expected": "Ram ghar par hai",
+      "notes": "Keeps singular 'hai' for single individual"
+    },
+    {
+      "id": "ctx-07",
+      "category": "homophone_context",
+      "input": "Video or audio sync nahi h",
+      "expected": "Video aur audio sync nahi hai",
+      "notes": "Translates ambiguous 'or' to Hindi conjunction 'aur' and expands 'h' to 'hai'"
+    },
+    {
+      "id": "app-01",
+      "category": "approved",
+      "input": "Namaste doston, welcome back to my channel",
+      "expected": "Namaste doston, welcome back to my channel",
+      "notes": "All words approved; zero unwanted mutation"
+    },
+    {
+      "id": "app-02",
+      "category": "approved",
+      "input": "Yeh idea bahut zyada interesting hai",
+      "expected": "Yeh idea bahut zyada interesting hai",
+      "notes": "Approved spellings 'bahut', 'zyada', 'hai' preserved"
+    },
+    {
+      "id": "app-03",
+      "category": "approved",
+      "input": "Zaroor channel ko subscribe karein",
+      "expected": "Zaroor channel ko subscribe karein",
+      "notes": "Approved 'zaroor' and 'karein' preserved"
+    },
+    {
+      "id": "app-04",
+      "category": "approved",
+      "input": "Isliye hum kehte hain ki koshish zaroori hai",
+      "expected": "Isliye hum kehte hain ki koshish zaroori hai",
+      "notes": "Preserves 'isliye', 'koshish', 'zaroori'"
+    },
+    {
+      "id": "mix-01",
+      "category": "mixed_english",
+      "input": "Basically digital marketing strategy aur client acquisition par baat karenge",
+      "expected": "Basically digital marketing strategy aur client acquisition par baat karenge",
+      "notes": "Keeps English creator terms in English while keeping Hindi structure"
+    },
+    {
+      "id": "mix-02",
+      "category": "mixed_english",
+      "input": "Timeline me cut lagao aur transition add karo",
+      "expected": "Timeline mein cut lagao aur transition add karo",
+      "notes": "Fixes 'me' to 'mein' while preserving 'timeline', 'cut', 'transition'"
+    },
+    {
+      "id": "mix-03",
+      "category": "mixed_english",
+      "input": "Camera aur microphone settings ko check kijiye",
+      "expected": "Camera aur microphone settings ko check kijiye",
+      "notes": "Preserves technical hardware terms"
+    },
+    {
+      "id": "mix-04",
+      "category": "mixed_english",
+      "input": "Instagram reels ke algorithm ko samajhne ki zaroorat hai",
+      "expected": "Instagram reels ke algorithm ko samajhne ki zaroorat hai",
+      "notes": "Preserves platform terms 'Instagram reels' and Hinglish 'samajhne', 'zaroorat'"
+    },
+    {
+      "id": "prop-01",
+      "category": "proper_nouns",
+      "input": "Danube ke saath apartment pricing negotiate ki",
+      "expected": "Danube ke saath apartment pricing negotiate ki",
+      "notes": "Preserves brand name Danube"
+    },
+    {
+      "id": "prop-02",
+      "category": "proper_nouns",
+      "input": "Reliance profitable hai aur Delhi capital hai",
+      "expected": "Reliance profitable hai aur Delhi capital hai",
+      "notes": "Preserves company and city proper nouns"
+    },
+    {
+      "id": "prop-03",
+      "category": "proper_nouns",
+      "input": "Amit ji office mein hain",
+      "expected": "Amit ji office mein hain",
+      "notes": "Preserves personal name with honorific 'ji' and plural copula 'hain'"
+    },
+    {
+      "id": "num-01",
+      "category": "numbers_punctuation",
+      "input": "Keval ₹500 rupaye lagenge isme",
+      "expected": "Keval ₹500 rupaye lagenge ismein",
+      "notes": "Preserves currency symbol, numeral, and normalizes 'isme' to 'usmein/ismein'"
+    },
+    {
+      "id": "num-02",
+      "category": "numbers_punctuation",
+      "input": "100% accurate results chahiye?",
+      "expected": "100% accurate results chahiye?",
+      "notes": "Preserves percentage and punctuation with approved 'chahiye'"
+    }
+  ]
+}

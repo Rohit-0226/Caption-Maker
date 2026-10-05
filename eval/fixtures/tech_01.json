@@ -1,0 +1,44 @@
+{
+  "id": "tech_01",
+  "title": "React Hooks Tutorial",
+  "category": "tech",
+  "raw_asr": "aaj hum useState hook deploy karenge with async await",
+  "ground_truth": [
+    {
+      "text": "aaj",
+      "script": "hi"
+    },
+    {
+      "text": "hum",
+      "script": "hi"
+    },
+    {
+      "text": "useState",
+      "script": "en"
+    },
+    {
+      "text": "hook",
+      "script": "en"
+    },
+    {
+      "text": "deploy",
+      "script": "en"
+    },
+    {
+      "text": "karenge",
+      "script": "hi"
+    },
+    {
+      "text": "with",
+      "script": "en"
+    },
+    {
+      "text": "async",
+      "script": "en"
+    },
+    {
+      "text": "await",
+      "script": "en"
+    }
+  ]
+}

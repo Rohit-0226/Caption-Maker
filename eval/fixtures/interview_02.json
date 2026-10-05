@@ -1,0 +1,48 @@
+{
+  "id": "interview_02",
+  "title": "Tech Podcast Discussion",
+  "category": "interview",
+  "raw_asr": "engineering culture me ownership aur execution speed matter karti hai",
+  "ground_truth": [
+    {
+      "text": "engineering",
+      "script": "en"
+    },
+    {
+      "text": "culture",
+      "script": "en"
+    },
+    {
+      "text": "me",
+      "script": "hi"
+    },
+    {
+      "text": "ownership",
+      "script": "en"
+    },
+    {
+      "text": "aur",
+      "script": "hi"
+    },
+    {
+      "text": "execution",
+      "script": "en"
+    },
+    {
+      "text": "speed",
+      "script": "en"
+    },
+    {
+      "text": "matter",
+      "script": "en"
+    },
+    {
+      "text": "karti",
+      "script": "hi"
+    },
+    {
+      "text": "hai",
+      "script": "hi"
+    }
+  ]
+}
