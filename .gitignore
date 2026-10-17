@@ -12,6 +12,18 @@ skills-lock.json
 *.db
 ai1.json
 
+# user media files — never upload videos or audios
+*.mp4
+*.mov
+*.mkv
+*.avi
+*.webm
+*.wav
+*.mp3
+*.m4a
+*.aac
+*.flac
+
 # secrets — never commit
 .env
 .env.local
