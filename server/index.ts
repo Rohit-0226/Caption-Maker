@@ -442,8 +442,10 @@ app.get('/api/jobs', (_req, res) => {
 });
 
 app.get('/api/jobs/:id', (req, res) => {
+  const active = jobs.get(param(req, 'id'));
+  if (active) return res.json(active);
   const job = getJob(param(req, 'id'));
-  if (!job) return res.status(404).json({ error: 'Job not found' });
+  if (!job) return res.status(404).json({ error: 'That job has finished and been cleared.' });
   res.json(job);
 });
 
@@ -1144,14 +1146,7 @@ app.post('/api/projects/:id/translate', handle(async (req, res) => {
 // Jobs
 // ---------------------------------------------------------------------------
 
-app.get('/api/jobs/:id', (req, res) => {
-  const job = jobs.get(param(req, 'id'));
-  if (!job) {
-    res.status(404).json({ error: 'That job has finished and been cleared.' });
-    return;
-  }
-  res.json(job);
-});
+
 
 app.post('/api/jobs/:id/cancel', (req, res) => {
   res.json({ cancelled: jobs.cancel(param(req, 'id')) });

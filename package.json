@@ -20,6 +20,8 @@
     "electron:start": "electron electron/main.cjs --dev",
     "electron:dev": "concurrently -n server,web,desktop -c cyan,magenta,green \"npm:dev:server\" \"npm:dev:web\" \"npm:electron:start\"",
     "electron:build": "npm run build && electron-builder --win",
+    "electron:build:mac": "npm run build && electron-builder --mac --arm64",
+    "electron:pack:mac": "npm run build && electron-builder --mac --arm64 --dir",
     "audit:sync": "tsx eval/syncAudit.ts"
   },
   "dependencies": {
@@ -71,16 +73,35 @@
     "extraResources": [
       {
         "from": "resources/bin",
-        "to": "bin",
-        "filter": [
-          "*.exe"
-        ]
+        "to": "bin"
       },
       {
         "from": "resources/icon.ico",
         "to": "icon.ico"
+      },
+      {
+        "from": "resources/icon.icns",
+        "to": "icon.icns"
       }
     ],
+    "mac": {
+      "icon": "resources/icon.icns",
+      "category": "public.app-category.video",
+      "target": [
+        {
+          "target": "dir",
+          "arch": [
+            "arm64"
+          ]
+        },
+        {
+          "target": "dmg",
+          "arch": [
+            "arm64"
+          ]
+        }
+      ]
+    },
     "win": {
       "icon": "resources/icon.ico",
       "executableName": "Caption Maker",

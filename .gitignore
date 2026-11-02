@@ -10,6 +10,8 @@ skills-lock.json
 
 # databases and local test files
 *.db
+*.db-shm
+*.db-wal
 ai1.json
 
 # user media files — never upload videos or audios
@@ -43,4 +45,5 @@ launcher/.rebuild_failed
 Caption Maker Web & Share.exe
 
 # large bundled binaries (ffmpeg, ffprobe, cloudflared)
+bin/
 resources/bin/
