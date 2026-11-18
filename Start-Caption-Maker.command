@@ -1,11 +1,12 @@
 #!/bin/bash
-cd "$(dirname "$0")"
-
-# If invoked from Desktop or another location, resolve the project root
-PROJECT_DIR="/Users/rohit/Desktop/Local Project V2/Caption Maker"
-if [ -d "$PROJECT_DIR" ]; then
-  cd "$PROJECT_DIR"
-fi
+SCRIPT_PATH="${BASH_SOURCE[0]}"
+while [ -L "$SCRIPT_PATH" ]; do
+  SCRIPT_DIR="$(cd -P "$(dirname "$SCRIPT_PATH")" >/dev/null 2>&1 && pwd)"
+  SCRIPT_PATH="$(readlink "$SCRIPT_PATH")"
+  [[ "$SCRIPT_PATH" != /* ]] && SCRIPT_PATH="$SCRIPT_DIR/$SCRIPT_PATH"
+done
+PROJECT_DIR="$(cd -P "$(dirname "$SCRIPT_PATH")" >/dev/null 2>&1 && pwd)"
+cd "$PROJECT_DIR"
 
 echo "=========================================="
 echo "    Caption Maker - Web & Desktop App    "

@@ -30,6 +30,8 @@ ai1.json
 .env
 .env.local
 .env.*.local
+user_settings.json
+data/user_settings.json
 
 *.log
 
